@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>index page</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+</head>
+<body>
+    <div class="jumbotron text-center">
+        <h1>SpringBoot with SQL practice</h1> 
+      </div>
+    <div class="container">
+        <div class="container">
+            <div class="row">
+              <div class="jumbotron text-center">
+                <h3>Response:</h3>
+                <p id="postData"></p>
+                <button onclick="getPost()">Get Data</button>
+              </div>
+            </div>
+          </div>
+          <script>
+          function getPost(){
+            fetch("http://127.0.0.1:8080/api/getPost")
+              .then((response)=>{return response.json()})
+              .then((data) => {
+                  console.log(data);
+                  $("#postData").text(JSON.stringify(data));
+              });
+          }
+          </script>
+</body>
+
+</html>
